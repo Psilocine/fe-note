@@ -2,15 +2,15 @@
 
 ⭐ 执行上下文/作用域链/闭包
 
-❓ 介绍一下js的执行上下文
+❓ 介绍一下 js 的执行上下文
 
-❓ 介绍一下js的作用域链
+❓ 介绍一下 js 的作用域链
 
-❓ 介绍一下js的闭包是什么，以及应用的场景
+❓ 介绍一下 js 的闭包是什么，以及应用的场景
 
-闭包就是那些可以访问自由变量的函数（自由变量就是在函数中使用，既不是函数参数又不是函数的局部变量的变量）
+🤔 闭包就是那些可以访问自由变量的函数（自由变量就是在函数中使用，既不是函数参数又不是函数的局部变量的变量）
 
-* 从理论角度讲，所有的函数都是闭包，因为JS是词法作用域，函数在创建的时候就把父级的执行上下文的变量对象保存到作用域链上
+* 从理论角度讲，所有的函数都是闭包，因为 JS 是词法作用域，函数在创建的时候就把父级的执行上下文的变量对象保存到作用域链上
 * 从实践角度讲，闭包函数指的是：
 1. 创建它的上下文已被销毁，仍然存在的函数（比如内部函数从父级函数返回）
 2. 引用自由变量的函数
@@ -19,14 +19,15 @@
 
 ⭐ this/call/apply/bind
 
-❓ 介绍一下js的this
+❓ 介绍一下 js 的 this
 
-❓ 如何改变this指向
+❓ 如何改变 this 指向
 
-❓ call、apply、bind有什么区别
+❓ call、apply、bind 有什么区别
 
-❓ 如何实现call和apply
+❓ 如何实现 call 和 apply
 ```javascript
+🤔
 // call 的实现
 Function.prototype.call2 = function (ctx) {
     ctx = ctx || window;
@@ -61,7 +62,9 @@ Function.prototype.bind2 = function (ctx, arr) {
 }
 ```
 
-❓ 如何实现一个bind
+❓ 如何实现一个 bind
+
+🤔
 ```javascript
 Function.prototype.bind2 = function (ctx) {
     // 防止调用 bind 的不是函数
@@ -88,7 +91,9 @@ Function.prototype.bind2 = function (ctx) {
 }
 ```
 
-❓ 如何实现一个new
+❓ 如何实现一个 new
+
+🤔
 ```javascript
 function new2 () {
     const obj = new Object();
@@ -108,7 +113,7 @@ function new2 () {
 
 ⭐ 原型/继承
 
-❓ 介绍一下js的原型
+❓ 介绍一下 js 的原型
 
 ❓ 原型链是什么
 
@@ -118,9 +123,11 @@ function new2 () {
 
 ⭐ Promise
 
-❓ promise是什么
+❓ Promise 是什么
 
-❓ 如何实现一个promise
+🤔 Promise 是一种异步编程的解决方案，它有 Pending、Fulfilled、Rejected 三种状态。
+
+❓ 如何实现一个 Promise
 
 ❓ Async await
 
@@ -128,7 +135,7 @@ function new2 () {
 
 ⭐ 深浅拷贝
 
-❓ 介绍一下js的深浅拷贝
+❓ 介绍一下 js 的深浅拷贝
 
 ❓ 如何实现浅拷贝
 
@@ -154,4 +161,4 @@ function new2 () {
 
 ❓ Web worker
 
-❓ 介绍常用方法：数组方法、es6后的方法
+❓ 介绍常用方法：数组方法、es6 后的方法
