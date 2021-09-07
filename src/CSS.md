@@ -2,6 +2,16 @@
 
 ❓ 介绍一下position
 
+🤔 position 属性用于指定一个元素在文档中的定位方式，通过top、right、bottom、left属性决定该元素的最终位置。
+它的值可以是static、relative、absolute、fixed、sticky、inherit、initial
+
+* static：正常布局行为，元素在文档流中，此时top、right、bottom、left和z-index无效
+* relative（相对定位）：元素在文档流中，在不改变文档流的前提下可以调整四个方位的位置属性
+* absolute（绝对定位）：元素脱离文档流，相对于最近的非static定位的父级元素偏移
+* fixed（固定定位）：元素脱离文档流，一般情况下相对于屏幕适口（viewport）偏移。
+当有父级元素的transform、perspective、filter属性非none时，相对于该父级元素偏移
+* sticky（粘性布局）：元素在文档流中，相对于最近的滚动父级元素进行偏移
+
 ---
 
 ❓ 介绍一下行内元素/块状元素
