@@ -25,7 +25,10 @@
 
 ❓ call、apply、bind 有什么区别
 
+🤔 首先这三个函数都能改变调用函数的 this 指向。先说 call 和 apply 的区别是提供参数的方式，call 方法接受的是一个参数列表，而 apply 方法接受的是一个包含多个参数的数组；它们和 bind 的区别是 bind 方法是创建一个新函数，不会马上执行，call 和 apply 方法会立即执行，第二个不同点是 bind 可以分批传入参数：创建传入 this 指向和参数，调用的时候再传剩余的参数。
+
 ❓ 如何实现 call 和 apply
+
 ```javascript
 🤔
 // call 的实现
@@ -34,7 +37,8 @@ Function.prototype.call2 = function (ctx) {
     ctx._fn = this;
 
     const args = [];
-    for (let i = 0; i < arguments.length; i++) {
+    // 排除首参数执行上下文的 this
+    for (let i = 1; i < arguments.length; i++) {
         args.push(`arguments[${i}]`);
     }
     
@@ -64,8 +68,8 @@ Function.prototype.bind2 = function (ctx, arr) {
 
 ❓ 如何实现一个 bind
 
-🤔
 ```javascript
+🤔
 Function.prototype.bind2 = function (ctx) {
     // 防止调用 bind 的不是函数
     if (typeof this !== 'Function') {
@@ -93,8 +97,8 @@ Function.prototype.bind2 = function (ctx) {
 
 ❓ 如何实现一个 new
 
-🤔
 ```javascript
+🤔
 function new2 () {
     const obj = new Object();
     // 约定入参的第一个参数为构造函数，splice 会改变原数组
