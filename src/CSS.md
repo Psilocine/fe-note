@@ -2,7 +2,7 @@
 
 ❓ 介绍一下 position
 
-🤔 position 属性用于指定一个元素在文档中的定位方式，通过top、right、bottom、left属性决定该元素的最终位置。
+🤔&emsp;position 属性用于指定一个元素在文档中的定位方式，通过top、right、bottom、left属性决定该元素的最终位置。
 它的值可以是static、relative、absolute、fixed、sticky、inherit、initial
 
 * static：正常布局行为，元素在文档流中，此时top、right、bottom、left和z-index无效
@@ -16,7 +16,7 @@
 
 ❓ 介绍一下行内元素/块状元素
 
-🤔 行内元素，规范称为内联级元素（inline-level elements）。从定义来看 inline、inline-block、inline-table 等都是；从表现来看，就是可以和文字在一行显示
+🤔&emsp;行内元素，规范称为内联级元素（inline-level elements）。从定义来看 inline、inline-block、inline-table 等都是；从表现来看，就是可以和文字在一行显示
 
 块状元素，规范称为块级元素（block-level elements）。基本特征是一个水平流只能单独显示一个元素，多个块级元素则换行显示。
 
@@ -26,14 +26,19 @@
 
 ❓ 介绍一下 flex 布局
 
-🤔 flex 是 flexible box 的缩写，意为弹性布局。块级元素和内联级元素（inline-flex）都可以使用。  
+🤔&emsp;flex 是 flexible box 的缩写，意为弹性布局。块级元素和内联级元素（inline-flex）都可以使用。  
 使用 flex 布局的元素成为容器（flex container），容器的子元素成为子项（flex item）。  
 flex 布局的容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。  
 容器属性有：
 * flex-direction: 决定主轴的方向。默认值为 `row`。可选值有 `row-reverse`、`column` 和 `column-reverse`
 * flex-wrap: 决定子项是否换行排列。默认值为 `nowrap`。可选值有 `wrap` 和 `wrap-reverse`（换行，第一行在下方）
 * flex-flow: flex-direction 和 flex-wrap 的缩写。默认值为 `row nowrap`。
-* justify-content: 决定子项在主轴的对齐方式。默认值为 `flex-start`。可选值有 `flex-end`（右对齐，实际上是主轴的结尾对齐）、`center`、`space-between`（子项间距相等）、`space-around`（子项间距相等，首尾子项距离容器是子项间间距的一半，即每个子项的左右间距一样） 和 `space-evenly`（子项间距相等，包括首尾子项距离容器的距离）
+* justify-content: 决定子项在主轴的对齐方式。默认值为 `flex-start`。可选值有：
+  * `flex-end`（右对齐，实际上是主轴的结尾对齐）
+  * `center`
+  * `space-between`（子项间距相等）
+  * `space-around`（子项间距相等，首尾子项距离容器是子项间间距的一半，即每个子项的左右间距一样）
+  * `space-evenly`（子项间距相等，包括首尾子项距离容器的距离）
 
 ![space-between](https://saas-base.cdnjtzy.com/sns/20210928/d7dcb46652b64808a761f5ebdb25a0fa.png)
 
@@ -54,15 +59,15 @@ flex 布局的容器默认存在两根轴：水平的主轴（main axis）和垂
 
 ❓ 如何使用 flex 实现九宫格布局
 
-🤔 通过设置容器的 justify-content、align-items 属性和子项的 align-self 属性。设置子项的情况是九宫格没有满九个子项（如绘制骰子的点数等）
+🤔&emsp;通过设置容器的 justify-content、align-items 属性和子项的 align-self 属性。设置子项的情况是九宫格没有满九个子项（如绘制骰子的点数等）
 
 ❓ flex: 1 指的是什么，flex 属性默认值是什么
 
-🤔 `flex: 1` 即 `flex: 1 1 0%`，适合等分布局。flex 默认值是 `0 1 auto`。比较常见的还有 `flex: none` 即 `flex: 0 0 auto`，适用于不换行的内容固定或者较少的小控件元素上，如按钮
+🤔&emsp;`flex: 1` 即 `flex: 1 1 0%`，适合等分布局。flex 默认值是 `0 1 auto`。比较常见的还有 `flex: none` 即 `flex: 0 0 auto`，适用于不换行的内容固定或者较少的小控件元素上，如按钮
 
 ❓ 分别介绍一下 flex-shrink 和 flex-basis 属性
 
-🤔 flex-shrink 决定子项的缩小比例。默认值为 `1`。不支持负值，没有空间子项会缩小。当值为 0 时，即使空间不足时也不缩小；flex-basis 决定子项在分配剩余空间前占据主轴的空间大小。默认值为 `auto`
+🤔&emsp;flex-shrink 决定子项的缩小比例。默认值为 `1`。不支持负值，没有空间子项会缩小。当值为 0 时，即使空间不足时也不缩小；flex-basis 决定子项在分配剩余空间前占据主轴的空间大小。默认值为 `auto`
 
 ❓ 介绍一下 grid 布局
 
@@ -71,6 +76,26 @@ flex 布局的容器默认存在两根轴：水平的主轴（main axis）和垂
 ⭐ 自适应
 
 ❓ 移动端 1px 问题
+
+🤔&emsp;推荐使用方法：
+
+* viewport + rem + media dpr（device pixel ratio）  
+缺点：通过 JS 对文档进行 viewport 修改
+
+* 伪元素 + transform scale + media dpr
+
+* svg 实现
+
+能解决的方法：
+
+* 0.5px + media dpr  
+缺点：安卓待兼容；支持 ios8+（无所谓）
+
+* border-image  
+缺点：更换麻烦
+
+* box-shadow  
+缺点：边框有阴影，颜色浅；Safari 不支持 1px 以下
 
 ❓ 解释一下 rem 方案和 vw 方案，分别有什么优点和缺点
 
